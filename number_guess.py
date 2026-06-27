@@ -44,8 +44,8 @@ def game_run(target, maximum):
                 print ("Great job! \nYou guessed the number in", attempts, " attempts")
             else:
                 print ("keep practising! \nYou guessed the number in", attempts, " attempts")
-                game_end()
-                break
+            game_end()
+            break
 
         elif user_choice < target:
             print("Your number was small. Take a bigger guess….")
