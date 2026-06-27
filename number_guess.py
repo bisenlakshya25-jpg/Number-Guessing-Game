@@ -84,28 +84,30 @@ def choose_difficulty ():
 # funtion to show rule of the game
 def show_rules():
     print("=============================== \n                 GAME RULES              \n===============================\n \n 1. The computer will randomly choose a number. \n2. Your task is to guess the correct number. \n3. Choose a difficulty level before starting:\n    • Easy   : 1 to 50 \n    • Medium : 1 to 100 \n    • Hard   : 1 to 500 \n4. After every guess, you will receive a hint:\n    • Too High \n.    • Too Low\n5. Keep guessing until you find the correct number. \n6. Your total number of attempts will be displayed when you win. \n7. You can choose to play again after the game ends. \n8. Enter valid numbers only.\n9. Have fun and challenge yourself! \n=============================== \n.    Best of Luck! 🎯\n===============================")
-    while True:
-        next = check_input("Do you want to return to previous menu: \n1. Yes \n2. No (exit the game", max_val = 2)
-        if next == 2:
-            print("Thanks for playing ❤️")
-        else:
-            return main_screen()
-
+  
+    next_choice = check_input("If you want to return to previous menu enter 1", max_val = 1)
+    if next_choice == 1:
+      return True
 # function for calling main screen
 def main_screen():
     print("==============================\n Number Guess Game \n============================== \n1. Start Game \n2. Rules \n3. Exit")
     choice = check_input("Enter Choice:")
     if choice == 1:
-        return choose_difficulty()
+        choose_difficulty()
+        return True
     elif choice == 2:
-        return show_rules()
+        show_rules()
+        return True
     else:
         print("Thanks for playing. \nGoodbye👋🏻")
+        return False
 
 # calling to intiate our code
 while True:
     main_screen()
+    
+    if not main_screen():
+        break
 
     if not game_end():
         break
-
