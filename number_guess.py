@@ -24,7 +24,7 @@ def game_end():
     print("Do you want to play againn\n1. Yes \n2. No")
     your_chose = check_input("Your Choice:", max_val = 2)
     if your_chose == 1:
-      return main_screen()
+      return (your_chose  == 1)
     else:
       print("Thanks for playing❤️")
      # if answer == 1:
@@ -39,8 +39,7 @@ def game_run(target, maximum):
         attempts += 1
         user_choice = check_input("Guess the target or Quit(Q):" , max_val = maximum, allow_quit = True)
         if user_choice == "q":
-            game_end()
-            break
+            return
         elif user_choice == target:
             if attempts <= 3:
                 print ("Excellent ! \nYou guessed the number in", attempts, " attempts")
@@ -48,8 +47,7 @@ def game_run(target, maximum):
                 print ("Great job! \nYou guessed the number in", attempts, " attempts")
             else:
                 print ("keep practising! \nYou guessed the number in", attempts, " attempts")
-            game_end()
-            break
+            return
 
         elif user_choice < target:
             print("Your number was small. Take a bigger guess….")
@@ -85,7 +83,7 @@ def choose_difficulty ():
 
 # funtion to show rule of the game
 def show_rules():
-    print("=============================== \n                 GAME RULES              \n===============================\n \n 1. The computer will randomly choose a number. \n2. Your task is to guess the correct number. \n3. Choose a difficulty level before starting:\n    • Easy   : 1 to 50 \n    • Medium : 1 to 100 \n    • Hard   : 1 to 500 \n4. After every guess, you will receive a hint:\n    • Too High \n.    • Too Low\n5. Keep guessing until you find the correct number. \n6. Your total number of attempts will be displayed when you win. \n7. You can choose to play again after the game ends. \n8. Enter valid numbers only./n9. Have fun and challenge yourself! \n=============================== \n.    Best of Luck! 🎯\n===============================")
+    print("=============================== \n                 GAME RULES              \n===============================\n \n 1. The computer will randomly choose a number. \n2. Your task is to guess the correct number. \n3. Choose a difficulty level before starting:\n    • Easy   : 1 to 50 \n    • Medium : 1 to 100 \n    • Hard   : 1 to 500 \n4. After every guess, you will receive a hint:\n    • Too High \n.    • Too Low\n5. Keep guessing until you find the correct number. \n6. Your total number of attempts will be displayed when you win. \n7. You can choose to play again after the game ends. \n8. Enter valid numbers only.\n9. Have fun and challenge yourself! \n=============================== \n.    Best of Luck! 🎯\n===============================")
     while True:
         next = check_input("Do you want to return to previous menu: \n1. Yes \n2. No (exit the game", max_val = 2)
         if next == 2:
@@ -105,5 +103,9 @@ def main_screen():
         print("Thanks for playing. \nGoodbye👋🏻")
 
 # calling to intiate our code
-main_screen()
+while True:
+    main_screen()
+
+    if not game_end():
+        break
 
