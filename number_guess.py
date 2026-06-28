@@ -81,11 +81,11 @@ def choose_difficulty ():
 
 # funtion to show rule of the game
 def show_rules():
-    print("=============================== \n                 GAME RULES              \n===============================\n \n 1. The computer will randomly choose a number. \n2. Your task is to guess the correct number. \n3. Choose a difficulty level before starting:\n    • Easy   : 1 to 50 \n    • Medium : 1 to 100 \n    • Hard   : 1 to 500 \n4. After every guess, you will receive a hint:\n    • Too High \n.    • Too Low\n5. Keep guessing until you find the correct number. \n6. Your total number of attempts will be displayed when you win. \n7. You can choose to play again after the game ends. \n8. Enter valid numbers only.\n9. Have fun and challenge yourself! \n=============================== \n.    Best of Luck! 🎯\n===============================")
+    print("=============================== \n                 GAME RULES              \n===============================\n \n 1. The computer will randomly choose a number. \n2. Your task is to guess the correct number. \n3. Choose a difficulty level before starting:\n    • Easy   : 1 to 50 \n    • Medium : 1 to 100 \n    • Hard   : 1 to 500 \n4. After every guess, you will receive a hint:\n    • Too High \n.    • Too Low\n5. Keep guessing until you find the correct number. \n6. Your total number of attempts will be displayed when you win. \n7. You can choose to play again after the game ends. \n8. Enter valid numbers only.\n9. Have fun and challenge yourself! \n=============================== \n.    Best of Luck! 🎯\n===============================\n \nEnter your choice by choosing the number \n1. Play the Game \n2. Exit")
   
-    next_choice = check_input("If you want to return to previous menu enter 1 and if you want to exit the game enter 2", max_val = 2)
+    next_choice = check_input("Enter choice:", max_val = 2)
     if next_choice == 1:
-        return True
+        return choose_difficulty()
     else:
         print("Thanks for playing❤️")
         return False
